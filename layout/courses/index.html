@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% include "navbar.html" %}
+{% block content %}
+<div class="container my-3">
+    <table class="table">
+        <thead>
+        <tr class="thead-dark">
+            <th style="width:10%">순서</th>
+            <th style="width:10%">THEME</th>
+            <th style="width:35%">COURSE_NAME</th>
+            <th style="width:25%">Departure</th>
+            <th style="width:25%">Arrival</th>
+            <th>Hours</th>
+            <th>Mins</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if courseinfo_list %}
+        {% for courseinfo in courseinfo_list %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>
+                <a href="{% url 'courses:detail' courseinfo.id %}">{{ courseinfo.theme }}</a></li> 
+            </td>
+            <td>
+                <a href="{% url 'courses:detail' courseinfo.id %}">{{ courseinfo.course_name }}</a></li> 
+            </td>
+            <td>
+                <a href="{% url 'courses:detail' courseinfo.id %}">{{ courseinfo.departure }}</a></li> 
+            </td>
+            <td>
+                <a href="{% url 'courses:detail' courseinfo.id %}">{{ courseinfo.arrival }}</a></li> 
+            </td>
+            <td>
+                <a href="{% url 'courses:detail' courseinfo.id %}">{{ courseinfo.hours }}</a></li> 
+            </td>
+            <td>
+                <a href="{% url 'courses:detail' courseinfo.id %}">{{ courseinfo.mins }}</a></li> 
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="3">질문이 없습니다.</td>
+        </tr>
+        {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

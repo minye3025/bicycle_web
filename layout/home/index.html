@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    
+<body>
+{% include "navbar.html" %}
+{% block content %}
+{% endblock %}    
+    <div><img src= "{% static 'img/home.jpg' %}"</div>
+    <h1>🚲따릉따릉~ 자전거타고 우리나라 한바퀴</h1>
+    <div id = "top">유형을 선택해주세요</div><br>
+    <div id = "recommendation">
+        <a href="ver1">1. 국토종주</a><br><br>
+        <a href="ver2">2. 테마종주</a>
+    </div>
+{% block script %}
+{% endblock %}
+</body>
+</html>
+
+
