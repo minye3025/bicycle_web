@@ -36,6 +36,6 @@ def detail(request, courseinfo_id):
     """
     board 내용 출력
     """
-    courseinfo = CourseInfo.object.get(id = courseinfo_id)
+    courseinfo = get_object_or_404(CourseInfo, pk=courseinfo_id)
     context = {'courseinfo': courseinfo}
     return render(request, 'courses/detail.html', context)
